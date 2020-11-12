@@ -50,7 +50,9 @@
               <el-input v-model="ruleForm.code"></el-input>
             </el-col>
             <el-col :span="8">
-              <el-button type="success" class="submitBtn">获取验证码</el-button>
+              <el-button type="success" @click="getSms" class="submitBtn"
+                >获取验证码</el-button
+              >
             </el-col>
           </el-row>
         </el-form-item>
@@ -59,7 +61,7 @@
             type="danger"
             class="submitBtn"
             @click="submitForm('ruleForm')"
-            >登录</el-button
+            >{{ model === "login" ? "登录" : "注册" }}</el-button
           >
         </el-form-item>
       </el-form>
@@ -69,6 +71,7 @@
 
 <script>
 import { stripscript, validateEmail, validatePassword } from "@/utils/validate";
+import { GetSms } from "@/api/login";
 export default {
   name: "login",
   data() {
@@ -167,6 +170,12 @@ export default {
     },
     resetForm(formName) {
       this.$refs[formName].resetFields();
+    },
+    // 获取验证码
+    getSms() {
+      GetSms({ username: this.ruleForm.username }).then((res) => {
+        console.log(res);
+      });
     },
   },
 };

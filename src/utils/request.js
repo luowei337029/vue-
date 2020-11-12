@@ -1,16 +1,18 @@
 // 抽取用户信息接口
 //导入xiaos
 import axios from "axios";
+
+const BASEURL = process.env.NODE_ENV === 'production' ? '' : '/devApi';
+// 手把手撸码前端API，地址 http://www.web-jshtml.cn/productApi
 // 创建请求对象
-const request = axios.create({
+const service = axios.create({
   // 基地址
-  baseURL: process.env.VUE_APP_URL,
-  // 是否跨域携带cookie 默认是false
-  withCredentials: true
+  baseURL: BASEURL,
+  timeout: 3000
 });
 
-// 添加一个请求拦截器 注册给创建的请求对象 把axios换成request
-request.interceptors.request.use(
+// 添加一个请求拦截器 注册给创建的请求对象 把axios换成service
+service.interceptors.request.use(
   function(config) {
     // 在发送之前 干一些事情
     // 在发送之前设置token
@@ -24,7 +26,7 @@ request.interceptors.request.use(
 );
 
 // 注册一个响应拦截器
-request.interceptors.response.use(
+service.interceptors.response.use(
   function(response) {
     return response;
   },
@@ -34,4 +36,4 @@ request.interceptors.response.use(
   }
 );
 
-export default request
+export default service
