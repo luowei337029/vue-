@@ -11,11 +11,23 @@ export default { name: "Main" };
 <style lang="scss" scoped>
 .main {
   position: fixed;
-  left: 250px;
+  padding: 30px 30px;
+  // left: 250px;
   top: 75px;
   bottom: 0;
   right: 0;
   border: 30px solid #ccc;
   border-bottom: none;
+  @include webkit(transition, all 0.3s);
+}
+.open {
+  .main {
+    left: $NavMaxWidth;
+  }
+}
+.close {
+  .main {
+    left: $NavMinWidth;
+  }
 }
 </style>

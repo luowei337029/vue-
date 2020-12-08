@@ -3,7 +3,7 @@ li.el-menu-item {
         background-color: rgba(245, 108, 108, .2) !important;
     }
     font-size: 14px !important;
-    padding-left: 50px !important
+    padding-left: 64px !important
 }
 .el-submenu {
     &.is-active.is-opened .el-submenu__title {
@@ -11,3 +11,50 @@ li.el-menu-item {
     }
 
 }
+.el-menu {
+    border-right: none !important;
+}
+.upload-img {
+    display: flex;
+    .upload {
+        background-color: #fbfdff;
+        border: 1px dashed #c0ccda;
+        border-radius: 6px;
+        box-sizing: border-box;
+        width: 148px;
+        height: 148px;
+        cursor: pointer;
+        line-height: 146px;
+        vertical-align: top;
+        text-align: center;
+        position: relative;
+        &:before{
+            content: "+";
+            font-size: 40px;
+            font-weight: 300;
+        }
+        img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+  
+    .img-list {
+        flex: 1;
+        padding-left: 30px;
+        li {
+            width: 60px;
+            height: 60px;
+            float: left;
+            margin: 0 10px;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+

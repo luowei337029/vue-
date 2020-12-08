@@ -1,0 +1,31 @@
+.progess-bar {
+    position: relative;
+    padding-left: 40px;
+    .oilMass {
+        position: absolute;
+        left: 0;
+    }
+    .bars {
+        width: 100%;
+        height: 10px;
+        border-radius: 20px;
+        background-color: #ccc;
+        margin-top: 16px;
+    }
+    .top {
+        display: block;
+        width: 50%;
+        height: 100%;
+        border-radius: 20px;
+        background-color: #379bff;
+        position: relative;
+    }
+    .label-text {
+        position: absolute;
+        left: 130px;
+        bottom: 0;
+    }
+    /deep/ input.el-input__inner {
+        text-align: center;
+    }
+}

@@ -28,7 +28,8 @@ const routes = [
     redirect: "/console",
     component: Layout,
     meta: {
-      name: "控制台"
+      name: "控制台",
+      icon: "console"
     },
     children: [
       {
@@ -41,50 +42,130 @@ const routes = [
       }
     ]
   },
+  // 停车场
   {
-    path: "/info",
-    name: "Info",
+    path: "/layout",
+    name: "Layout",
+    redirect: "/console",
     component: Layout,
     meta: {
-      name: "信息管理"
+      name: "停车场",
+      icon: "console"
     },
     children: [
       {
-        path: "/infoList",
-        name: "InfoList",
-        component: () => import("../views/info/infoList.vue"),
+        path: "/parking",
+        name: "parking",
+        component: () => import("../views/parking/index.vue"),
         meta: {
-          name: "信息列表"
+          name: "停车场列表"
         }
       },
       {
-        path: "/infoClassify",
-        name: "InfoClassify",
-        component: () => import("../views/info/infoClassify.vue"),
+        path: "/parkingAdd",
+        name: "parkingAdd",
+        component: () => import("../views/parking/parkingAdd.vue"),
         meta: {
-          name: "信息分类"
+          name: "新增停车场"
         }
-      }
+      },
     ]
   },
+  // 车辆品牌
   {
-    path: "/user",
-    name: "User",
+    path: "/carsBrand",
+    name: "CarsBrand",
+    redirect: "/console",
     component: Layout,
     meta: {
-      name: "用户管理"
+      name: "车辆品牌",
+      icon: "console"
     },
     children: [
       {
-        path: "/userList",
-        name: "UserList",
-        component: () => import("../views/user/userList.vue"),
+        path: "/carsBrand",
+        name: "carsBrand",
+        component: () => import("../views/carsBrand/index.vue"),
         meta: {
-          name: "用户列表"
+          name: "品牌列表"
         }
-      }
+      }]
+  },
+  // 车辆管理
+  {
+    path: "/cars",
+    name: "Cars",
+    redirect: "/console",
+    component: Layout,
+    meta: {
+      name: "车辆管理",
+      icon: "console"
+    },
+    children: [
+      {
+        path: "/carsIndex",
+        name: "carsIndex",
+        component: () => import("../views/cars/index.vue"),
+        meta: {
+          name: "车辆列表"
+        }
+      },
+      {
+        path: "/carsAdd",
+        name: "carsAdd",
+        component: () => import("../views/cars/carsAdd.vue"),
+        meta: {
+          name: "新增车辆"
+        }
+      },
     ]
-  }
+  },
+  // {
+  //   path: "/info",
+  //   name: "Info",
+  //   component: Layout,
+  //   meta: {
+  //     name: "信息管理",
+  //     icon: "info"
+  //   },
+  //   children: [
+  //     {
+  //       path: "/infoList",
+  //       name: "InfoList",
+  //       component: () => import("../views/info/infoList.vue"),
+  //       meta: {
+  //         name: "信息列表"
+  //       }
+  //     },
+  //     {
+  //       path: "/infoClassify",
+  //       name: "InfoClassify",
+  //       component: () => import("../views/info/infoClassify.vue"),
+  //       meta: {
+  //         name: "信息分类"
+  //       }
+  //     }
+  //   ]
+  // },
+  // {
+  //   path: "/user",
+  //   name: "User",
+  //   component: Layout,
+  //   meta: {
+  //     name: "用户管理",
+  //     icon: "user"
+  //   },
+  //   children: [
+  //     {
+  //       path: "/userList",
+  //       name: "UserList",
+  //       component: () => import("../views/user/userList.vue"),
+  //       meta: {
+  //         name: "用户列表"
+  //       }
+  //     }
+  //   ]
+  // }
 ];
 
 const router = new VueRouter({

@@ -3,7 +3,7 @@
 </template>
 
 <script>
-export default { name: "Console"}
+export default { name: "Console" };
 </script>
 
 <style lang="scss" scoped></style>
